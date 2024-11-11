@@ -48,7 +48,7 @@ This framework uses Playwright for JavaScript to perform automation testing for 
    ```bash
    npx playwright test --project=webkit
 
-4. Run tests with cross-browser
+4. Run tests with cross-browsers
    ```bash
    npx playwright test
 
