@@ -17,3 +17,19 @@ steps:
   displayName: 'Run Playwright tests on chromium browser'
   env:
     CI: 'true'
+- task: PublishTestResults@2
+  displayName: 'Publish test results'
+  inputs:
+    searchFolder: 'playwright-report'
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'junit-results.xml'
+    mergeTestResults: true
+    failTaskOnFailedTests: true
+    testRunTitle: 'My End-To-End Tests'
+  condition: succeededOrFailed()
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: playwright-report
+    artifact: playwright-report
+    publishLocation: 'pipeline'
+  condition: succeededOrFailed()
