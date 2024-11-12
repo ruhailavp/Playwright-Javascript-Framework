@@ -89,10 +89,10 @@ This framework covers the following testing scenarios:
 
 This framework contains built-in playwright html report and implemented Allure report.
 
-- Open Playwright html report 
+- **Open Playwright html report**
 ``` bash
 npx playwright show-report
 
-- Open Allure html report
+- **Open Allure html report**
 ```bash
 allure serve allure-reports
