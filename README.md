@@ -49,7 +49,7 @@ The following environment variables are used in the project:
 
 3. **Install browsers**
    ```bash
-   playwright install
+   npx playwright install
 
 ### Running Tests
 
