@@ -72,7 +72,7 @@ The following environment variables are used in the project:
 ### Supported Scenarios
 This framework covers the following testing scenarios:
 
-- Session Storage: Storing and reusing the login session.
+- Session Storage: Storing and re-using the login session.
 - Form Handling: Filling and submitting forms
 - Login and Logout: Authentication flow
 - Dropdowns: Selecting options form dropdown and Multiselct dropdowns
