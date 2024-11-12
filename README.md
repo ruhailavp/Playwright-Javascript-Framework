@@ -8,6 +8,7 @@ This repository contains a Playwright JavaScript framework designed to automate 
 - [Setup and Installation](#setup-and-installation)
 - [Running Tests](#running-tests)
 - [Supported Scenarios](#supported-scenarios)
+- [Test Reports](#test-reports)
 
 
 ## Getting Started
@@ -82,3 +83,12 @@ This framework covers the following testing scenarios:
 - JavaScript Alerts: Alert handling (accept, dismiss)
 - Popups and Modals: Popup interaction
 - Multi-Window Handling: Switching between multiple windows/tabs
+
+
+##Test Reports##
+
+This framework contains built-in playwright html report and implemented Allure report.
+
+- Open Allure html report
+```bash
+allure serve allure-reports
