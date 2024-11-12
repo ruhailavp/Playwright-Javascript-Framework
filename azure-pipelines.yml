@@ -4,6 +4,9 @@ trigger:
 pool:
   vmImage: windows-latest
 
+variables:
+  BROWSER: 'webkit'     # Define an environment variable here
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -13,8 +16,8 @@ steps:
   displayName: 'npm ci'
 - script: npx playwright install --with-deps
   displayName: 'Install Playwright browsers'
-- script: npx playwright test --project=chromium
-  displayName: 'Run Playwright tests on chromium browser'
+- script: npx playwright test --project=$(BROWSER)
+  displayName: 'Run Playwright tests'
   env:
     CI: 'true'
 - task: PublishTestResults@2
