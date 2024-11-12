@@ -84,15 +84,13 @@ This framework covers the following testing scenarios:
 - Popups and Modals: Popup interaction
 - Multi-Window Handling: Switching between multiple windows/tabs
 
-
 ### Test Reports
-
 This framework contains built-in playwright html report and implemented Allure report.
 
-1. **Open Playwright html report**
-``` bash
-npx playwright show-report
-```
-2. **Open Allure html report**
-```bash
-allure serve allure-results
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/dvhiremath26/Playwright-Javascript-Framework.git  
+
+2. **Install dependencies:**
+   ```bash
+   npm install
