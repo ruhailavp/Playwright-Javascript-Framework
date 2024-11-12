@@ -1,7 +1,7 @@
 import { BasePage } from "./basePage";
 import { LoginPage } from "./loginPage";
 
-import selector from '../pageObjects/signupPage.json';
+import selector from '../locators/signupPage.json';
 
 
 export class SignupPage extends BasePage {
@@ -20,19 +20,19 @@ export class SignupPage extends BasePage {
     }
 
     async enterName(name) {
-        await this.fillText(`${selector.signupForm.nameField}`, name);
+        await this.fillText(`${selector.nameField}`, name);
     }
 
     async enterEmail(email) {
-        await this.fillText(`${selector.signupForm.emailField}`, email);
+        await this.fillText(`${selector.emailField}`, email);
     }
 
     async enterPassword(password) {
-        await this.fillText(`${selector.signupForm.passwordfield}`, password);
+        await this.fillText(`${selector.passwordfield}`, password);
     }
 
     async checkInterestsCheckbox(interests) {
-        const checkboxes = await this.getElement(`${selector.signupForm.interestChecboxes}`);
+        const checkboxes = await this.getElement(`${selector.interestChecboxes}`);
         const expectedCheckbox = checkboxes.filter({
             hasText: interests
         })
@@ -41,20 +41,20 @@ export class SignupPage extends BasePage {
 
     async selectGenderRadioButton(gender) {
         if(gender.toLowerCase() === 'male') {
-            await this.clickOnElement(`${selector.signupForm.maleGenderRadioButton}`);
+            await this.clickOnElement(`${selector.maleGenderRadioButton}`);
         } else {
-            await this.clickOnElement(`${selector.signupForm.femaleGenderRadioButton}`);
+            await this.clickOnElement(`${selector.femaleGenderRadioButton}`);
         }        
     }
 
     async selectState(state) {
-        await this.selectFromDropdownByvisibleText(`${selector.signupForm.selectState}`, state);
+        await this.selectFromDropdownByvisibleText(`${selector.selectState}`, state);
     }
 
 
     async selectHobbies() {
         let randomIndexes = [];
-        const hobbies = await this.getAllElements(`${selector.signupForm.hobbies}`);
+        const hobbies = await this.getAllElements(`${selector.hobbies}`);
         
         // Generate two unique random indexes
         while (randomIndexes.length < 2) {
@@ -71,7 +71,7 @@ export class SignupPage extends BasePage {
     }
 
     async clickOnSignupButton() {
-        await this.clickOnElement(`${selector.signupForm.signupButton}`);
+        await this.clickOnElement(`${selector.signupButton}`);
         return new LoginPage(this.page);
     }
        

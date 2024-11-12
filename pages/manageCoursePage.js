@@ -1,7 +1,6 @@
 import { BasePage } from "./basePage";
 
-import selector from '../pageObjects/manageCoursePage.json';
-// const selector = require('../pageObjects/manageCoursePage.json');
+import selector from '../locators/manageCoursePage.json';
 
 
 export class ManageCoursePage extends BasePage {
@@ -21,62 +20,62 @@ export class ManageCoursePage extends BasePage {
     }
 
     async clickOnAddNewCourseButton() {
-        await this.clickOnElement(`${selector.manageCourse.addCourse}`);
+        await this.clickOnElement(`${selector.addCourse}`);
     }
 
     async clickOnChooseFile() {
-        await this.clickOnElement(`${selector.newCourse.chooseFile}`);
+        await this.clickOnElement(`${selector.chooseFile}`);
     }
 
     async uploadImageFile(filePath) { 
-        const element = await this.getElement(`${selector.newCourse.chooseFile}`);
+        const element = await this.getElement(`${selector.chooseFile}`);
         await element.setInputFiles(filePath);    
     }
 
     async enterCoursename(courseName) {
-        await this.fillText(`${selector.newCourse.courseName}`, courseName);
+        await this.fillText(`${selector.courseName}`, courseName);
     }
 
     async enterDescription(description) {
-        await this.fillText(`${selector.newCourse.description}`, description);
+        await this.fillText(`${selector.description}`, description);
     }
 
     async enterInstructor(instructorName) {
-        await this.fillText(`${selector.newCourse.instructor}`, instructorName);
+        await this.fillText(`${selector.instructor}`, instructorName);
     }
 
     async enterPrice(priceValue) {
-        await this.fillText(`${selector.newCourse.price}`, priceValue);
+        await this.fillText(`${selector.price}`, priceValue);
     }
 
     async clickOnStartDate() {
-        await this.clickOnElement(`${selector.newCourse.startDate}`);
+        await this.clickOnElement(`${selector.startDate}`);
     }
 
     async clickOnEndDate() {
-        await this.clickOnElement(`${selector.newCourse.endDate}`);
+        await this.clickOnElement(`${selector.endDate}`);
     }
 
     async datePicker(expectedMonth, expectedDay) {
         while(true) {
-            const actualMonthYear = await this.getElementText(`${selector.newCourse.currentMonth}`);
+            const actualMonthYear = await this.getElementText(`${selector.currentMonth}`);
             const [actualMonth, actualYear] = actualMonthYear.split(' ');
         
             const actualMonthObject = await this.getMonthObject(actualMonth);
             const expectedMonthObject = await this.getMonthObject(expectedMonth);
 
             if(actualMonthObject < expectedMonthObject){
-                await this.clickOnElement(`${selector.newCourse.nextMonth}`);
+                await this.clickOnElement(`${selector.nextMonth}`);
 
             } else if(actualMonthObject > expectedMonthObject) {
-                await this.clickOnElement(`${selector.newCourse.previousMonth}`);
+                await this.clickOnElement(`${selector.previousMonth}`);
                             
             } else {
                 break;
             }
         }  
         
-        const days = await this.getElement(`${selector.newCourse.days}`);
+        const days = await this.getElement(`${selector.days}`);
         await days.filter({
             hasText: expectedDay
         }).click();
@@ -84,24 +83,24 @@ export class ManageCoursePage extends BasePage {
     
     
     async getPermanentCheckboxStatus() {
-        const status = await this.checkboxStatus(`${selector.newCourse.permanentCheckbox}`);
+        const status = await this.checkboxStatus(`${selector.permanentCheckbox}`);
         return status;
     }
 
     async clickOnSaveButton(locator) {
-        await this.clickOnElement(`${selector.newCourse.saveButton}`);
+        await this.clickOnElement(`${selector.saveButton}`);
         await this.wait();
     }
 
 
     async checkboxStatus() {
-        const checkbox = await this.getElement(`${selector.newCourse.permanentCheckbox}`);
+        const checkbox = await this.getElement(`${selector.permanentCheckbox}`);
         return checkbox;
     }
 
     async selectCategory() {
-        await this.clickOnElement(`${selector.newCourse.selectCategory}`);
-        const categories = await this.getAllElements(`${selector.newCourse.categories}`);
+        await this.clickOnElement(`${selector.selectCategory}`);
+        const categories = await this.getAllElements(`${selector.categories}`);
         const randomIndex = Math.floor(Math.random() * categories.length);
         await this.wait();
         await categories[randomIndex].click();
@@ -109,15 +108,15 @@ export class ManageCoursePage extends BasePage {
 
 
     async rowsCount() {
-        const table = await this.getElement(`${selector.webTable.table}`);
-        const rows = await table.locator(`${selector.webTable.rows}`);
+        const table = await this.getElement(`${selector.table}`);
+        const rows = await table.locator(`${selector.rows}`);
         return rows.count();
     }
 
 
     async getCourseNameFromList(courseName) {
-        const table = await this.getElement(`${selector.webTable.table}`);
-        const rows = await table.locator(`${selector.webTable.rows}`);
+        const table = await this.getElement(`${selector.table}`);
+        const rows = await table.locator(`${selector.rows}`);
         const rowData = await rows.filter({
             has: this.page.locator('td'),
             hasText: `${courseName}`
@@ -127,8 +126,8 @@ export class ManageCoursePage extends BasePage {
     }
 
     async getCreatedCourseElement(courseName) {
-        const table = await this.getElement(`${selector.webTable.table}`);
-        const rows = await table.locator(`${selector.webTable.rows}`);
+        const table = await this.getElement(`${selector.table}`);
+        const rows = await table.locator(`${selector.rows}`);
         const rowData = await rows.filter({
             has: this.page.locator('td'),
             hasText: `${courseName}`

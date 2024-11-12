@@ -1,7 +1,7 @@
 import { BasePage } from './basePage';
 import { WelcomePage } from './welcomePage';
 import { SignupPage } from './signupPage';
-import selector from '../pageObjects/loginPage.json';
+import selector from '../locators/loginPage.json';
 
 
 
@@ -33,18 +33,18 @@ export class LoginPage extends BasePage {
     }
 
     async getNewUserLink() {
-        const newUserLink = await this.getElement(`${selector.loginForm.newUserLink}`);
+        const newUserLink = await this.getElement(`${selector.newUserLink}`);
         return newUserLink;
     }
 
     async clickOnNewUserLink() {
-        await this.clickOnElement(`${selector.loginForm.newUserLink}`);
+        await this.clickOnElement(`${selector.newUserLink}`);
         return new SignupPage(this.page);
     }
 
 
     async getSignupSuccessMessage() {
-        const message = await this.getElementText(`${selector.successMessage.message}`);
+        const message = await this.getElementText(`${selector.successMessage}`);
         return message;
     }
 }

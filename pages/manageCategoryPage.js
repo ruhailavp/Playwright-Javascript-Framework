@@ -1,5 +1,5 @@
 import { BasePage } from "./basePage";
-import selector from '../pageObjects/manageCategoryPage.json';
+import selector from '../locators/manageCategoryPage.json';
 
 
 
@@ -19,12 +19,12 @@ export class ManageCategoryPage extends BasePage {
     }
     
     async clickOnAddCategoryButton() {
-        await this.clickOnElement(`${selector.manageCategory.addNewCategoryButton}`);
+        await this.clickOnElement(`${selector.addNewCategoryButton}`);
     }
 
     async getCategoryNameFromList(categoryName) {
-        const table = await this.getElement(`${selector.webTable.table}`);
-        const rows = await table.locator(`${selector.webTable.rows}`);
+        const table = await this.getElement(`${selector.table}`);
+        const rows = await table.locator(`${selector.rows}`);
         const rowData = await rows.filter({
             has: this.page.locator('td'),
             hasText: `${categoryName}`
@@ -46,17 +46,15 @@ export class ManageCategoryPage extends BasePage {
 
 
     async getPopupMessage() {
-        const popup = await this.getElement(`${selector.popup.popupWindow}`);
-        const popupMessage = await popup.locator(`${selector.popup.popupMessage}`).textContent();
+        const popup = await this.getElement(`${selector.popupWindow}`);
+        const popupMessage = await popup.locator(`${selector.popupMessage}`).textContent();
         return popupMessage;
     }
 
     async clickOnDeleteOnPopup() {
-        const popup = await this.getElement(`${selector.popup.popupWindow}`);
-        await popup.locator(`${selector.popup.deleteButton}`).click();
+        const popup = await this.getElement(`${selector.popupWindow}`);
+        await popup.locator(`${selector.deleteButton}`).click();
         await this.wait();
     }
-
-
 
  }
