@@ -85,7 +85,7 @@ This framework covers the following testing scenarios:
 - Multi-Window Handling: Switching between multiple windows/tabs
 
 
-## Test Reports
+### Test Reports
 
 This framework contains built-in playwright html report and implemented Allure report.
 
