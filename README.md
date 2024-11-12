@@ -87,10 +87,10 @@ This framework covers the following testing scenarios:
 ### Test Reports
 This framework contains built-in playwright html report and implemented Allure report.
 
-1. **Clone the repository:**
+1. **Open Playwright html report:**
    ```bash
-   git clone https://github.com/dvhiremath26/Playwright-Javascript-Framework.git  
+   npx playwright shoow-report 
 
-2. **Install dependencies:**
+2. **Open Allure report:**
    ```bash
-   npm install
+   allure serve allure-results
