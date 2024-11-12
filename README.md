@@ -3,17 +3,19 @@
 This repository contains a Playwright JavaScript framework designed to automate testing for a web application. Using the Page Object Model (POM) design pattern, this framework covers various end-to-end scenarios including session storage, form fills, login/logout, dropdowns, checkboxes, radio buttons, calendars, web tables, JavaScript alerts, popups, and multi-window handling. The setup includes configurations for both browser specific and cross-browser testing.
 
 ## Table of Contents
-- [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
+- [Environment Variables](#environment-variables)
 - [Setup and Installation](#setup-and-installation)
 - [Running Tests](#running-tests)
 - [Supported Scenarios](#supported-scenarios)
+
 
 ## Getting Started
 
 This framework uses Playwright for JavaScript to perform automation testing for web applications. Follow the instructions below to set up, configure, and run tests.
 
-## Project Structure
+
+### Project Structure
 
 - `tests/` - Contains test scripts for various scenarios.
 - `pageObjects/` - Contains json files for each page which conatins respective page locators.
@@ -23,18 +25,31 @@ This framework uses Playwright for JavaScript to perform automation testing for 
 - `playwright.config.js` - Configuration file for Playwright, setting up browsers, test directories, and cross-browser support.
 - `tests/login.setup.js` - Stores session data for reuse the session/authenticated tests.
 
-## Setup and Installation
+
+### Environment Variables
+The following environment variables are used in the project:
+
+| Variable Name       | Variable Value      | Description         |
+|---------------------|---------------------|---------------------|
+| TEST_URL            | https://example.com | The URL of your testing applicating     |
+| EMAIL               | your email          | Valid email    |
+| PASSWORD            | your passowrd       | Valid passowrd    |
+
+
+
+### Setup and Installation
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/yourrepo.git
-   cd yourrepo
+   git clone [https://github.com/yourusername/yourrepo.git](https://github.com/dvhiremath26/Playwright-JS-Framework.git)
+   
 
 2. **Install dependencies:**
    ```bash
    npm install
 
-## Running Tests
+
+### Running Tests
 
 1. Run tests with chromium browser
    ```bash
@@ -52,7 +67,8 @@ This framework uses Playwright for JavaScript to perform automation testing for 
    ```bash
    npx playwright test
 
-## Supported Scenarios
+
+### Supported Scenarios
 This framework covers the following testing scenarios:
 
 - Session Storage: Storing and reusing the login session.
