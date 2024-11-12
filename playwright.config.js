@@ -53,7 +53,7 @@ export default defineConfig({
   reporter: [ ['list'],
               ['html'],
               ['allure-playwright'],
-              ['junit', {path: './playwright-report/junit-results.xml'}]
+              ['junit', {outputFile: './playwright-report/junit-results.xml'}]
             ],
 
 
