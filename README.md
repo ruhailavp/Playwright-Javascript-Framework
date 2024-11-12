@@ -47,6 +47,10 @@ The following environment variables are used in the project:
    ```bash
    npm install
 
+3. **Install browsers**
+   ```bash
+   playwright install
+
 ### Running Tests
 
 1. Run tests with chromium browser
