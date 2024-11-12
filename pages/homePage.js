@@ -1,7 +1,7 @@
 import { BasePage } from './basePage';
 import { LoginPage } from './loginPage';
 
-import selector from "../pageObjects/homePage.json";
+import selector from "../locators/homePage.json";
 import 'dotenv/config';
 
 
@@ -22,16 +22,16 @@ export class HomePage extends BasePage {
 
 
     async clickOnHamburgerMenu() {
-        await this.clickOnElement(`${selector.menu.hamburgerMenu}`);
+        await this.clickOnElement(`${selector.hamburgerMenu}`);
     }
 
     async clickOnLoginLink() {
-        await this.clickOnElement(`${selector.menu.loginLink}`);
+        await this.clickOnElement(`${selector.loginLink}`);
         return new LoginPage(this.page);
     }
 
     async getCoursesCount() {
-        const coursesCount = (await this.getAllElements(`${selector.homeComponents.courseCards}`)).length;
+        const coursesCount = (await this.getAllElements(`${selector.courseCards}`)).length;
         return coursesCount;
     }
 }
