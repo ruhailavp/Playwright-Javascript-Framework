@@ -41,7 +41,7 @@ The following environment variables are used in the project:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/yourrepo.git](https://github.com/dvhiremath26/Playwright-JS-Framework.git)   
+   git clone https://github.com/dvhiremath26/Playwright-JS-Framework.git   
 
 2. **Install dependencies:**
    ```bash
