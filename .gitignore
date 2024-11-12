@@ -4,5 +4,9 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 playwright/.auth
+<<<<<<< HEAD
+=======
+login-data.json
+>>>>>>> 608421bd55bf4867954ae652c152d2adaaf44638
 allure-results/
 .env
