@@ -92,6 +92,7 @@ This framework contains built-in playwright html report and implemented Allure r
 1. **Open Playwright html report**
 ``` bash
 npx playwright show-report
+```
 2. **Open Allure html report**
 ```bash
-allure serve allure-reports
+allure serve allure-results
