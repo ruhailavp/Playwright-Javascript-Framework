@@ -21,13 +21,16 @@ steps:
   displayName: 'Run Playwright tests'
   env:
     CI: 'true'
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/junit-results.xml'
+
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: playwright-report
     artifact: playwright-report
     publishLocation: 'pipeline'
+  condition: succeededOrFailed()
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/junit-results.xml'
   condition: succeededOrFailed()
