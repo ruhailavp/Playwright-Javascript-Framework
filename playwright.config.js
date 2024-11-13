@@ -84,15 +84,17 @@ export default defineConfig({
     /* Chromium browser */
     {
       name: 'smoke-chromium',
+      grep: /@smoke/,
       use: {
         browserName: 'chromium',
       },
-      testMatch: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js' ],
+      // testMatch: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js' ],
     },
 
     {
       name: 'setup-chromium',
-      testMatch: '**/*.setup.js', // Matches files ending with .setup.js for setup tasks     
+      grep: /@setup/,
+      // testMatch: '**/*.setup.js', // Matches files ending with .setup.js for setup tasks     
       dependencies: ['smoke-chromium'],
       use: {
         browserName: 'chromium',
@@ -109,7 +111,7 @@ export default defineConfig({
         actionTimeout: 30000,         
       },      
       testMatch: '**/*.spec.js',
-      testIgnore: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
+      testIgnore: /@smoke/,
       dependencies: ['smoke-chromium', 'setup-chromium'],
     },
 

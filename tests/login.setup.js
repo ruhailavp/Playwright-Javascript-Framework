@@ -4,7 +4,7 @@ import path from "path";
 
 
 
-setup('Perform login action', async ({ page, browserName }) => {
+setup('@setup Perform login action', async ({ page, browserName }) => {
 
     const STORAGE_STATE = path.join(__dirname, '..', 'storageState', `storageState_${browserName}.json`);
 

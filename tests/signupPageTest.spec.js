@@ -5,7 +5,7 @@ import { faker } from "@faker-js/faker";
 
 
 
-test.describe('Signup flow', () => {
+test.describe('@smoke Signup flow', () => {
     let homePage;
     // let signupPage;
 
