@@ -53,7 +53,7 @@ export default defineConfig({
   reporter: [ ['list'],
               ['html'],
               ['allure-playwright'],
-              ['junit', {outputFile: './playwright-report/junit-results.xml'}]
+              ['junit', {outputFile: './junit-report/junit-results.xml'}]
             ],
 
 
@@ -111,7 +111,8 @@ export default defineConfig({
         actionTimeout: 30000,         
       },      
       testMatch: '**/*.spec.js',
-      testIgnore: /@smoke/,
+      testIgnore: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
+      // testIgnore: /@smoke/,
       dependencies: ['smoke-chromium', 'setup-chromium'],
     },
 
