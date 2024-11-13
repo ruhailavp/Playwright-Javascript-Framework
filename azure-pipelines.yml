@@ -4,9 +4,6 @@ trigger:
 pool:
   vmImage: windows-latest
 
-variables:
-  BROWSER: 'webkit'     # Define an environment variable here
-
 steps:
 - task: NodeTool@0
   inputs:
