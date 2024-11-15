@@ -143,6 +143,25 @@ export class BasePage {
         const monthObj = monthsObj[month.toUpperCase()];
         return monthObj;    
     }
+
+
+    async getAllAltTextFromPage(url) {
+        await this.page.goto(url);
+        await this.page.waitForLoadState('domcontentloaded');
+
+        const imageInfo = await this.page.evaluate(() => {
+            const images = Array.from(document.querySelectorAll('img'));
+            return images.map(img => ({
+                alt : img.getAttribute('alt') || 'No alt attribute',
+                src : img.getAttribute('src') || 'No src attribute'
+            }))
+        })
+    }
+
+
+    async getAllUrlsFromSitemapXml(sitemapXmlUrl) {
+        
+    }
     
 
 }
