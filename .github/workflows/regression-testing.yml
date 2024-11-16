@@ -4,6 +4,9 @@ on:
     branches: feature/feature-actions
   pull_request:
     branches: feature/feature-actions
+permissions:
+  contents: read
+  id-token: write # Add this line
 jobs:
   test:
     timeout-minutes: 60
@@ -31,7 +34,6 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        # Upload entire repository
         path: playwright-report/
     - name: Deploy to GitHub Pages
       id: deployment
