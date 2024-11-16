@@ -6,7 +6,8 @@ on:
     branches: feature/feature-actions
 permissions:
   contents: read
-  id-token: write # Add this line
+  id-token: write
+  pages: write # Add this line
 jobs:
   test:
     timeout-minutes: 60
