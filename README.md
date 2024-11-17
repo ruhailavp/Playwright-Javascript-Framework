@@ -1,8 +1,7 @@
 # Playwright JavaScript Testing Framework
 ![GitHub Stars](https://img.shields.io/github/stars/dvhiremath26/playwright-javascript-framework?style=social)
 [![Regression-Testing](https://github.com/dvhiremath26/Playwright-Javascript-Framework/actions/workflows/regression-testing.yml/badge.svg)](https://github.com/dvhiremath26/Playwright-Javascript-Framework/)
-[![HTML Report](https://img.shields.io/badge/HTML-Test_Report-blue)](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
-![Version](https://img.shields.io/github/package-json/v/dvhiremath26/playwright-javascript-framework)
+[![HTML Report](https://img.shields.io/badge/HTML-Test_Report-purple)](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
 ![Languages](https://img.shields.io/github/languages/top/dvhiremath26/playwright-javascript-framework)
 ![Open Issues](https://img.shields.io/github/issues/dvhiremath26/playwright-javascript-framework)
 ![Pull Requests](https://img.shields.io/github/issues-pr/dvhiremath26/playwright-javascript-framework)
