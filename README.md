@@ -46,9 +46,9 @@ The following environment variables are used in the project, and their values ar
 
 | Secret Name       | Secret Value      | Description         |
 |-------------------|-------------------|---------------------|
-| `TEST_URL`        | https://example.com | The URL of your testing application |
-| `EMAIL`           | your email        | A valid email for authentication |
-| `PASSWORD`        | your password     | A valid password for authentication |
+| `STAGE_URL`        | https://example.com | The URL of your testing application |
+| `LOGIN_EMAIL`           | your email        | A valid email for authentication |
+| `LOGIN_PASSWORD`        | your password     | A valid password for authentication |
 
 #### Using Environment Variables in Playwright:
 These GitHub secrets will be automatically injected into the environment during test execution, and you can access them directly in your test scripts or Playwright configuration files.
