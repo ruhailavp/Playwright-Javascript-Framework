@@ -17,10 +17,10 @@ setup('@setup Perform login action', async ({ page, browserName }) => {
     await page.locator("//div[@class='navbar-menu-links']").click();
     await page.locator("//button[@class='nav-menu-item']").click();
 
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
     
-    await page.getByPlaceholder("Enter Email").fill(process.env.EMAIL);
-    await page.getByPlaceholder("Enter Password").fill(process.env.PASSWORD);
+    await page.getByPlaceholder("Enter Email").fill(process.env.LOGIN_EMAIL);
+    await page.getByPlaceholder("Enter Password").fill(process.env.LOGIN_PASSWORD);
     await page.locator("button[type='submit']").click();
 
     await page.waitForTimeout(3000);
