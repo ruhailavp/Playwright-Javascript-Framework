@@ -19,7 +19,7 @@ This framework uses Playwright for JavaScript to perform automation testing for 
 ### Project Structure
 
 - `tests/` - Contains test scripts for various scenarios.
-- `pageObjects/` - Contains json files for each page which conatins respective page locators.
+- `locators/` - Contains json files for each page which conatins respective page locators.
 - `pages/` - Implements the Page Object Model (POM) structure, with separate files for each page of the web application.
 - `storageState/` - Contains storage session json files.
 - `testData/` - Contains test data.
