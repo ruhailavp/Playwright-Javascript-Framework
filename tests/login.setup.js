@@ -23,7 +23,7 @@ setup('@setup Perform login action', async ({ page, browserName }) => {
     await page.getByPlaceholder("Enter Password").fill(process.env.PASSWORD);
     await page.locator("button[type='submit']").click();
 
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(3000);
 
     expect(page).toHaveTitle("Learn Automation Courses");
 
