@@ -1,5 +1,13 @@
 # Playwright JavaScript Testing Framework
 
+[![Regression-Testing](https://github.com/dvhiremath26/Playwright-Javascript-Framework/actions/workflows/regression-testing.yml/badge.svg)](https://github.com/dvhiremath26/Playwright-Javascript-Framework/)
+[![HTML Report](https://img.shields.io/badge/HTML-Test_Report-blue)](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
+![Version](https://img.shields.io/github/package-json/v/dvhiremath26/playwright-javascript-framework)
+![Languages](https://img.shields.io/github/languages/top/dvhiremath26/playwright-javascript-framework)
+![Open Issues](https://img.shields.io/github/issues/dvhiremath26/playwright-javascript-framework)
+![Pull Requests](https://img.shields.io/github/issues-pr/dvhiremath26/playwright-javascript-framework)
+![GitHub Stars](https://img.shields.io/github/stars/dvhiremath26/playwright-javascript-framework?style=social)
+
 This repository contains a Playwright JavaScript framework designed to automate testing for a web application. Using the Page Object Model (POM) design pattern, this framework covers various end-to-end scenarios including session storage, form fills, login/logout, dropdowns, checkboxes, radio buttons, calendars, web tables, JavaScript alerts, popups, and multi-window handling. The setup includes configurations for both browser specific and cross-browser testing.
 
 ## Table of Contents
