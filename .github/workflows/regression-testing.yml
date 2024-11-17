@@ -9,7 +9,7 @@ permissions:
   id-token: write
   pages: write # Add this line
 jobs:
-  test:
+  regression-tests:
     timeout-minutes: 60
     runs-on: windows-latest
     steps:
@@ -17,10 +17,19 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+
     - name: Install dependencies
       run: npm ci
+
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+
+    - name: Set environment variables for login
+      run: |
+        echo "LOGIN_EMAIL=${{ secrets.LOGIN_EMAIL }}" >> $GITHUB_ENV
+        echo "LOGIN_PASSWORD=${{ secrets.LOGIN_PASSWORD }}" >> $GITHUB_ENV
+        echo "STAGE_URL"=${{ secrets.STAGE_URL }}" >> $GITHUB_ENV
+
     - name: Run Playwright tests
       run: npx playwright test --project=firefox
     - uses: actions/upload-artifact@v4
@@ -32,10 +41,12 @@ jobs:
 
     - name: Setup Pages
       uses: actions/configure-pages@v2
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
         path: playwright-report/
+
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v1
