@@ -1,6 +1,6 @@
 # Playwright JavaScript Testing Framework
 
-[![Regression-Testing-Report](https://github.com/dvhiremath26/Playwright-Javascript-Framework/actions/workflows/regression-testing.yml/badge.svg)](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
+[![Regression-Testing](https://github.com/dvhiremath26/Playwright-Javascript-Framework/actions/workflows/regression-testing.yml/badge.svg)](https://dvhiremath26/Playwright-Javascript-Framework/)
 [![HTML Report](https://img.shields.io/badge/HTML-Test_Report-orange)](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
 ![Version](https://img.shields.io/github/package-json/v/dvhiremath26/playwright-javascript-framework)
 ![Languages](https://img.shields.io/github/languages/top/dvhiremath26/playwright-javascript-framework)
