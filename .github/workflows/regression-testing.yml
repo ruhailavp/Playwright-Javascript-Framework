@@ -3,10 +3,10 @@ name: Regression-Testing
 on:
   push:
     branches: 
-      - feature/feature-actions
+      - feature/feature-deepak
   pull_request:
     branches: 
-      - feature/feature-actions
+      - feature/feature-deepak
 
 permissions:
   contents: read
