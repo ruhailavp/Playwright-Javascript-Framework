@@ -15,6 +15,7 @@ This repository contains a Playwright JavaScript framework designed to automate 
 - [Setup and Installation](#setup-and-installation)
 - [Running Tests](#running-tests)
 - [Supported Scenarios](#supported-scenarios)
+- [Configuration Details](#configuration-details)
 - [Test Reports](#test-reports)
 
 
@@ -35,15 +36,39 @@ This framework uses Playwright for JavaScript to perform automation testing for 
 
 
 ### Environment Variables
-The following environment variables are used in the project:
 
-| Variable Name       | Variable Value      | Description         |
-|---------------------|---------------------|---------------------|
-| TEST_URL            | https://example.com | The URL of your testing applicating     |
-| EMAIL               | your email          | Valid email    |
-| PASSWORD            | your passowrd       | Valid passowrd    |
+The following environment variables are used in the project, and their values are stored as GitHub Secrets for enhanced security and easier management. You can set up these environment variables in your GitHub repository's Secrets section to use them during workflows such as CI/CD.
 
+#### GitHub Secrets Configuration:
+1. Go to your GitHub repository.
+2. Navigate to **Settings** → **Secrets** → **New repository secret**.
+3. Add the following secrets:
 
+| Secret Name       | Secret Value      | Description         |
+|-------------------|-------------------|---------------------|
+| `TEST_URL`        | https://example.com | The URL of your testing application |
+| `EMAIL`           | your email        | A valid email for authentication |
+| `PASSWORD`        | your password     | A valid password for authentication |
+
+#### Using Environment Variables in Playwright:
+These GitHub secrets will be automatically injected into the environment during test execution, and you can access them directly in your test scripts or Playwright configuration files.
+
+Example of accessing these environment variables in `playwright.config.js`:
+
+```js
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  projects: [
+    {
+      name: 'example-project',
+      use: {
+        baseURL: process.env.STAGE_URL,  // Access the TEST_URL secret
+      },
+    },
+  ],
+});
+```
 
 ### Setup and Installation
 
@@ -91,6 +116,47 @@ This framework covers the following testing scenarios:
 - Popups and Modals: Popup interaction
 - Multi-Window Handling: Switching between multiple windows/tabs
 
+### Configuration Details
+
+- **Session Storage**: 
+  The session is stored using Playwright's `storageState()` built-in function. This allows for session reuse across test suites, enabling authenticated tests to run without needing to log in every time. The session data is saved in JSON format and can be accessed from the `storageState/` folder.
+
+  Example configuration in `playwright.config.js`:
+  ```js
+  project: [
+  {
+    name: 'smoke',
+    use: {
+      storageState: 'storageState/smoke-session.json', // Path to session file
+    },
+  }
+  ]
+  ```
+
+- **Suite Dependencies**:
+  In this framework, test suites are set up with dependencies to ensure that a suite runs only after its dependent suite/test has completed. This allows you to control the 
+  order of execution between different suites and ensure that prerequisites (like login) are completed before running dependent tests.
+
+   To implement suite dependencies, use the `dependencies` configuration in `playwright.config.js`. The `dependencies` field specifies which suite(s) must complete before      the current suite can run.
+
+   Example Configuration in `playwright.config.js`::
+
+   In the following example, the `smoke` test suite depends on the `login` suite. The `smoke` suite will only run after the `login` suite has successfully executed.
+
+   ```js
+   projects: [
+     {
+       name: 'smoke',
+       testMatch: '**/*/smoke.spec.js',  // Path to the smoke test suite
+       dependencies: ['login'], // The smoke suite will run only after the login suite has completed
+     },
+     {
+       name: 'login',
+       testMatch: '**/*/login.spec.js',  // Path to the login test suite
+     },
+   ]
+   ```
+
 ### Test Reports
 This framework contains built-in playwright html report and implemented Allure report.
 
@@ -101,3 +167,5 @@ This framework contains built-in playwright html report and implemented Allure r
 2. **Open Allure report:**
    ```bash
    allure serve allure-results
+
+
