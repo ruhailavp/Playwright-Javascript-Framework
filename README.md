@@ -1,15 +1,11 @@
 # Playwright JavaScript Testing Framework
 
 [![Regression-Testing-Report](https://github.com/dvhiremath26/Playwright-Javascript-Framework/actions/workflows/regression-testing.yml/badge.svg)](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
-
-![Build Status](https://img.shields.io/github/actions/workflow/status/chennareddy/PlaywrightFramework/test.yml?branch=main)
-![Version](https://img.shields.io/github/package-json/v/chennareddy/PlaywrightFramework)
-![License](https://img.shields.io/github/license/chennareddy/PlaywrightFramework)
-![Languages](https://img.shields.io/github/languages/top/chennareddy/PlaywrightFramework)
-![Open Issues](https://img.shields.io/github/issues/chennareddy/PlaywrightFramework)
-![Pull Requests](https://img.shields.io/github/issues-pr/chennareddy/PlaywrightFramework)
-![Contributors](https://img.shields.io/github/contributors/chennareddy/PlaywrightFramework)
-![GitHub Stars](https://img.shields.io/github/stars/chennareddy/PlaywrightFramework?style=social)
+![Version](https://img.shields.io/github/package-json/v/dvhiremath26/playwright-javascript-framework)
+![Languages](https://img.shields.io/github/languages/top/dvhiremath26/playwright-javascript-framework)
+![Open Issues](https://img.shields.io/github/issues/dvhiremath26/playwright-javascript-framework)
+![Pull Requests](https://img.shields.io/github/issues-pr/dvhiremath26/playwright-javascript-framework)
+![GitHub Stars](https://img.shields.io/github/stars/dvhiremath26/playwright-javascript-framework?style=social)
 
 This repository contains a Playwright JavaScript framework designed to automate testing for a web application. Using the Page Object Model (POM) design pattern, this framework covers various end-to-end scenarios including session storage, form fills, login/logout, dropdowns, checkboxes, radio buttons, calendars, web tables, JavaScript alerts, popups, and multi-window handling. The setup includes configurations for both browser specific and cross-browser testing.
 
