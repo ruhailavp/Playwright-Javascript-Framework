@@ -1,7 +1,7 @@
 # Playwright JavaScript Testing Framework
 ![GitHub Stars](https://img.shields.io/github/stars/dvhiremath26/playwright-javascript-framework?style=social)
 [![Regression-Testing](https://github.com/dvhiremath26/Playwright-Javascript-Framework/actions/workflows/regression-testing.yml/badge.svg)](https://github.com/dvhiremath26/Playwright-Javascript-Framework/)
-[![HTML Report](https://img.shields.io/badge/HTML-Test_Report-purple)](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
+[![Playwright HTML Report](https://img.shields.io/badge/Playwright_HTML-Test_Report-purple)](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
 ![Languages](https://img.shields.io/github/languages/top/dvhiremath26/playwright-javascript-framework)
 ![Open Issues](https://img.shields.io/github/issues/dvhiremath26/playwright-javascript-framework)
 ![Pull Requests](https://img.shields.io/github/issues-pr/dvhiremath26/playwright-javascript-framework)
@@ -17,7 +17,7 @@ This repository contains a Playwright JavaScript framework designed to automate 
 - [Supported Scenarios](#supported-scenarios)
 - [Configuration Details](#configuration-details)
 - [Test Reports](#test-reports)
-
+- [Continuous Integration](#continuous-integration)
 
 ## Getting Started
 
@@ -167,5 +167,40 @@ This framework contains built-in playwright html report and implemented Allure r
 2. **Open Allure report:**
    ```bash
    allure serve allure-results
+
+### Continuous Integration
+
+The framework is integrated with **GitHub Actions** for automated test execution and report generation. Below is the setup for CI workflows:
+
+#### 1. **Regression-Testing Workflow**
+The `regression-testing.yml` workflow executes the test suite and generates test reports.
+
+- **Trigger**: The workflow runs on every push to the `main` branch or when a pull request is opened.
+
+- **Steps**:
+  - Set up the testing environment.
+  - Install dependencies and browsers.
+  - Execute the test suite.
+  - Generate and upload Playwright HTML reports.
+
+#### 2. **Publishing Playwright Report to GitHub Pages**
+The Playwright report is automatically published to GitHub Pages after every successful CI run. This allows easy access to the latest test results via a browser.
+
+**View Report**: [Playwright HTML Report](https://dvhiremath26.github.io/Playwright-Javascript-Framework/)
+
+#### 3. **How to Configure**
+Ensure the following steps are completed in your GitHub repository:
+1. Enable GitHub Pages:
+   - Navigate to **Settings** → **Pages**.
+   - Select the `GitHub Actions` under the source.
+   - Save the settings.
+
+2. Include a GitHub Actions workflow file (e.g., `regression-testing.yml`) with steps to:
+   - Install Playwright.
+   - Run tests.
+   - Generate Playwright HTML reports.
+   - Deploy the reports to the GitHub pages.
+     
+
 
 
