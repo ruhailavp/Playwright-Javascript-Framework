@@ -36,7 +36,9 @@ export class ManageCategoryPage extends BasePage {
 
     async clickOnUpdateButton(categoryName) {
         await this.page.getByRole('row', {name: `${categoryName}`}).getByRole('button', {name: 'Update'}).click();
-        await this.page.waitForTimeout(8000);
+        
+        // Runs the time for 6 seconds.
+        await this.page.clock.runFor(6000);
     }
 
     async deleteCategory(categoryName) {
