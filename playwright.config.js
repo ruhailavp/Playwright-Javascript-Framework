@@ -11,7 +11,7 @@ export const STORAGE_STATE_CHROMIUM = path.join(__dirname, 'storageState', 'stor
 export const STORAGE_STATE_FIREFOX = path.join(__dirname, 'storageState', 'storageState_firefox.json');
 export const STORAGE_STATE_WEBKIT = path.join(__dirname, 'storageState', 'storageState_webkit.json');
 
-
+// const playwrightReportFolder = getReportFolder('playwright-report', 10); 
 
 
 /**
@@ -50,7 +50,7 @@ export default defineConfig({
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [ ['list'],
-              ['html', { outputFolder: () => getReportFolder(playwright-report, 10), open: 'never' }],
+              ['html'],
               ['allure-playwright'],
               ['junit', {outputFile: './junit-report/junit-results.xml'}]
             ],
