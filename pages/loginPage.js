@@ -19,6 +19,10 @@ export class LoginPage extends BasePage {
         this.signinButton = "[type='submit']";
     }
 
+    async navigateToLoginPage() {
+        await this.page.goto('/login');
+    }
+
     async enterEmail(email) {
         await this.fillText(this.emailField, email);
     }
