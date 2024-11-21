@@ -93,7 +93,6 @@ export default defineConfig({
     {
       name: 'setup-chromium',
       grep: /@setup/,
-      // testMatch: '**/*.setup.js', // Matches files ending with .setup.js for setup tasks     
       dependencies: ['smoke-chromium'],
       use: {
         browserName: 'chromium',
@@ -110,7 +109,7 @@ export default defineConfig({
         actionTimeout: 30000,         
       },      
       testMatch: '**/*.spec.js',
-      testIgnore: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
+      testIgnore: ['**/loginSetup.spec.js', '**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
       // testIgnore: /@smoke/,
       dependencies: ['smoke-chromium', 'setup-chromium'],
     },
@@ -182,6 +181,9 @@ export default defineConfig({
       testIgnore: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
       dependencies: ['smoke-webkit', 'setup-webkit'],
     },
+
+
+    ///////////////////////////////////////////////////////////////////////
 
 
 
