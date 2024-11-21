@@ -1,8 +1,7 @@
-// @ts-check
-// const { defineConfig, devices } = require('@playwright/test');
 import { defineConfig, devices } from "@playwright/test";
 import path from "path";
 import 'dotenv/config';
+import { getReportFolder } from './utils/reportManager'
 
 // export const STORAGE_STATE = path.join(__dirname, 'storageState', 'storageState.json');
 // export const STORAGE_STATE_CHROMIUM = path.join(__dirname, 'storageState', 'storageState_chromium.json');
@@ -12,7 +11,7 @@ export const STORAGE_STATE_CHROMIUM = path.join(__dirname, 'storageState', 'stor
 export const STORAGE_STATE_FIREFOX = path.join(__dirname, 'storageState', 'storageState_firefox.json');
 export const STORAGE_STATE_WEBKIT = path.join(__dirname, 'storageState', 'storageState_webkit.json');
 
-
+// const playwrightReportFolder = getReportFolder('playwright-report', 10); 
 
 
 /**
