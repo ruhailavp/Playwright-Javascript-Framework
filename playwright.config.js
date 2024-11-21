@@ -1,8 +1,7 @@
-// @ts-check
-// const { defineConfig, devices } = require('@playwright/test');
 import { defineConfig, devices } from "@playwright/test";
 import path from "path";
 import 'dotenv/config';
+import { getReportFolder } from './utils/reportManager'
 
 // export const STORAGE_STATE = path.join(__dirname, 'storageState', 'storageState.json');
 // export const STORAGE_STATE_CHROMIUM = path.join(__dirname, 'storageState', 'storageState_chromium.json');
@@ -51,7 +50,7 @@ export default defineConfig({
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [ ['list'],
-              ['html'],
+              ['html', { outputFolder: () => getReportFolder(playwright-report, 10), open: 'never' }],
               ['allure-playwright'],
               ['junit', {outputFile: './junit-report/junit-results.xml'}]
             ],
