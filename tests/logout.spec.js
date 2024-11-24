@@ -1,9 +1,11 @@
-import { test, expect } from '@playwright/test';
-import { WelcomePage } from '../pages/welcomePage';
+import { test, expect } from "../fixtures/pomFixture";
+
+// import { test, expect } from '@playwright/test';
+// import { WelcomePage } from '../pages/welcomePage';
 
 
-test('Perform logout action', async ({ page }) => {
-    const welcomePage = new WelcomePage(page);
+test('Perform logout action', async ({ welcomePage }) => {
+    // const welcomePage = new WelcomePage(page);
 
     await welcomePage.openWelcomePage();
     await welcomePage.clickOnHamburgermenu();

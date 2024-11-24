@@ -52,7 +52,6 @@ export default defineConfig({
   reporter: [ ['list'],
               ['html'],
               ['allure-playwright'],
-              ['junit', {outputFile: './junit-report/junit-results.xml'}]
             ],
 
 
@@ -186,18 +185,14 @@ export default defineConfig({
 
 
 
-    // {
-    //   name: 'edge',
-    //   use: { 
-    //     // ...devices['Desktop Edge'], 
-    //     browserName: 'chromium',
-    //     channel: 'msedge',
-    //     storageState: STORAGE_STATE,
-    //    },
-    //   testMatch: '**/*.spec.js',
-    //   testIgnore: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
-    //   dependencies: ['smoke', 'setup'],
-    // },
+    {
+      name: 'edge',
+      use: { 
+        // ...devices['Desktop Edge'], 
+        browserName: 'chromium',
+        channel: 'msedge',
+       },
+    },
 
 
     // {

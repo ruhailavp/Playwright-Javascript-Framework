@@ -111,9 +111,6 @@ export class BasePage {
             this.clickOnElement(locator)        // Click on the element that opens the new tab
         ]);
 
-        // Wait for the new tab to load
-        await newPage.waitForLoadState();
-
         // Return the new tab (page object)
         return newPage;
     }

@@ -1,5 +1,4 @@
-import { test, expect } from '@playwright/test';
-import { SignupPage } from '../pages/signupPage';
+import { test, expect } from "../fixtures/pomFixture";
 import { faker } from "@faker-js/faker";
 
 
@@ -11,8 +10,9 @@ test.describe('@smoke Signup flow', () => {
 
     test.describe.configure({mode: 'serial'});
 
-    test('Verify signup flow', async ({ page }) => {
-        const signupPage = new SignupPage(page);
+    test('Verify signup flow', async ({ signupPage }) => {
+        // const signupPage = new SignupPage(page);
+        
         await signupPage.navigateToSignupPage();
         await signupPage.enterName(`${faker.person.firstName()}`);
         await signupPage.enterEmail(`${faker.internet.email()}`);

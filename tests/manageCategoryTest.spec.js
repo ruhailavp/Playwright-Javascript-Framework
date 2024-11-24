@@ -1,7 +1,10 @@
-import { test, expect } from '@playwright/test';
-import { WelcomePage } from '../pages/welcomePage';
-import { ManageCategoryPage } from '../pages/manageCategoryPage';
+import {test, expect } from "../fixtures/pomFixture";
 import { faker } from '@faker-js/faker';
+
+// import { test, expect } from '@playwright/test';
+// import { WelcomePage } from '../pages/welcomePage';
+// import { ManageCategoryPage } from '../pages/manageCategoryPage';
+
 
 const category_name = `Playwright ${faker.lorem.word()}`;
 const new_category_name = `Playwright ${faker.lorem.word()}`;
@@ -15,8 +18,9 @@ test.describe('Mange course category flow', () => {
     //     category_name = `Playwright ${faker.lorem.word()}`;
     // })
     
-    test('Verify new window', async ({ page }) => {
-        const welcomePage = new WelcomePage(page); 
+    test('Verify new window', async ({ welcomePage }) => {
+        // const welcomePage = new WelcomePage(page); 
+
         await welcomePage.openWelcomePage();
         await welcomePage.hoverOnManageMenu();
         const manageCategoryPage = await welcomePage.clickOnManageCategoryLink();
@@ -27,8 +31,9 @@ test.describe('Mange course category flow', () => {
     })
 
 
-    test('Create a new category', async ({ page }) => {
-        const categoryPage = new ManageCategoryPage(page);
+    test('Create a new category', async ({ categoryPage }) => {
+        // const categoryPage = new ManageCategoryPage(page);
+
         await categoryPage.navigateMnaageCategoryPage();
 
         await categoryPage.acceptAlertWithInputPrompt(category_name);
@@ -39,8 +44,9 @@ test.describe('Mange course category flow', () => {
         expect(categoryname).toBe(category_name); 
     })
 
-    test('Update category name', async ({ page }) => {
-        const categoryPage = new ManageCategoryPage(page);
+    test('Update category name', async ({ categoryPage }) => {
+        // const categoryPage = new ManageCategoryPage(page);
+
         await categoryPage.navigateMnaageCategoryPage();
 
         await categoryPage.acceptAlertWithInputPrompt(new_category_name);
@@ -52,8 +58,9 @@ test.describe('Mange course category flow', () => {
     })
 
 
-    test('Delete the category', async ({ page }) => {
-        const categoryPage = new ManageCategoryPage(page);
+    test('Delete the category', async ({ categoryPage }) => {
+        // const categoryPage = new ManageCategoryPage(page);
+
         await categoryPage.navigateMnaageCategoryPage();
         await categoryPage.deleteCategory(new_category_name);
         const popupMessage = await categoryPage.getPopupMessage();

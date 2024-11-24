@@ -46,6 +46,10 @@ export class WelcomePage extends BasePage {
         await this.wait();
     }
 
+    async storeSession(storagePath) {
+        await this.page.context().storageState(storagePath);
+    }
+
 
     
 }
