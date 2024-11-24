@@ -1,12 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "../fixtures/pomFixture";
 import 'dotenv/config';
 import path from "path";
-import { LoginPage } from '../pages/loginPage';
 
 
-test('@setup Perform login action', async ({ page, browserName }) => {
-    const loginPage = new LoginPage(page);
-
+test('@setup Perform login action', async ({ loginPage, browserName }) => {
     const STORAGE_STATE = path.join(__dirname, '..', 'storageState', `storageState_${browserName}.json`);
     console.log("Storage name: ", STORAGE_STATE);
 
@@ -17,40 +14,7 @@ test('@setup Perform login action', async ({ page, browserName }) => {
     const title = await welcomePage.getPageTitle();
     await welcomePage.wait(2000);
     expect(title).toBe("Learn Automation Courses");
-    await page.context().storageState({path: STORAGE_STATE});    
+    await welcomePage.storeSession(STORAGE_STATE);
 })
 
 
-
-/////////////////////////////////////
-
-
-// setup('@setup Perform login action', async ({ page, browserName }) => {
-
-//     const STORAGE_STATE = path.join(__dirname, '..', 'storageState', `storageState_${browserName}.json`);
-
-//     console.log("Storage name: ", STORAGE_STATE);
-    
-//     await page.goto("https://freelance-learn-automation.vercel.app/");
-
-//     expect.soft(page).toHaveTitle('Learn Automation Courses');
-
-//     await page.locator("//div[@class='navbar-menu-links']").click();
-//     await page.locator("//button[@class='nav-menu-item']").click();
-
-//     await page.waitForTimeout(1000);
-    
-//     await page.getByPlaceholder("Enter Email").fill(process.env.LOGIN_EMAIL);
-//     await page.getByPlaceholder("Enter Password").fill(process.env.LOGIN_PASSWORD);
-//     await page.locator("button[type='submit']").click();
-
-//     await page.waitForTimeout(2000);
-
-//     expect(page).toHaveTitle("Learn Automation Courses");
-
-//     await page.context().storageState({path: STORAGE_STATE});
-// })
-
-
-
-////////////////////////////////////////////////////////////////

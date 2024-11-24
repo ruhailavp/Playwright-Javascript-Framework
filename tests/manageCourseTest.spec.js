@@ -1,6 +1,4 @@
-import { test, expect } from '@playwright/test';
-import { WelcomePage } from '../pages/welcomePage';
-import { ManageCoursePage } from '../pages/manageCoursePage';
+import { test, expect } from "../fixtures/pomFixture";
 import { faker } from "@faker-js/faker";
 
 const course_name = `Playwright ${faker.lorem.word()} course`;
@@ -9,13 +7,9 @@ test.describe('Course creation test flow', () => {
 
     test.describe.configure({ mode: 'serial' });
 
-    // test.beforeEach(async ({ page }) => {
-    //     // welcomePage = new WelcomePage(page);
-    //     // manageCoursePage = new ManageCoursePage(page);        
-    // })
 
-    test('Add a new course and verify it', async ({ page }) => {
-        const welcomePage = new WelcomePage(page);
+    test('Add a new course and verify it', async ({ welcomePage }) => {
+        // const welcomePage = new WelcomePage(page);
         await welcomePage.openWelcomePage();
         await welcomePage.hoverOnManageMenu();
         const manageCoursePage = await welcomePage.clickOnManageCourseLink();
@@ -43,8 +37,9 @@ test.describe('Course creation test flow', () => {
     })
 
     
-    test('Delete the course', async ({ page }) => {
-        const manageCoursePage = new ManageCoursePage(page);
+    test('Delete the course', async ({ manageCoursePage }) => {
+        // const manageCoursePage = new ManageCoursePage(page);
+
         await manageCoursePage.navigateCourseManagePage();
         await manageCoursePage.deleteCourse(course_name);
         await manageCoursePage.wait();
@@ -54,8 +49,8 @@ test.describe('Course creation test flow', () => {
     })
 
 
-    test('Verify the alert for uploading larger file', async ({ page }) => {
-        const manageCoursePage = new ManageCoursePage(page);
+    test('Verify the alert for uploading larger file', async ({ manageCoursePage }) => {
+        // const manageCoursePage = new ManageCoursePage(page);
 
         await manageCoursePage.navigateCourseManagePage();
         await manageCoursePage.clickOnAddNewCourseButton();
