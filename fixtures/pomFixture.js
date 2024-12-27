@@ -6,13 +6,19 @@ import { ManageCoursePage } from '../pages/manageCoursePage';
 import { SignupPage } from '../pages/signupPage';
 import { WelcomePage } from '../pages/welcomePage';
 
-/** @typedef {import('../pages/homePage').HomePage} HomePage */
+/** 
+ * @typedef {import('../pages/homePage').HomePage} HomePage
+ * @typedef {import('../pages/loginPage').HomePage} LoginPage 
+ * @typedef {import('../pages/welcomePage').HomePage} WelcomePage
+ * */
 
 const test = base.extend({
 
     /**
      * @param {import('@playwright/test').Page} page
      * @param {(homePage: HomePage) => Promise<void>} use
+     * @param {(loginPage: LoginPage) => Promise<void>} use
+     * @param {(welcomePage: WelcomePage) => Promise<void>} use
      */
 
     homePage: async ({ page }, use) => {
