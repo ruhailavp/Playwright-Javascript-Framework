@@ -11,8 +11,14 @@ export async function readExcelFile(filePath, sheetName) {
 
     // Extract rows as an array of objects
     const sheetData = [];
+    const headers = sheet.getRow(1).values.slice(1); // Get the headers from the first row
+
     sheet.eachRow((row, rowIndex) => {
-        const rowData = row.values.slice(1); // Remove the index from the row values
+        if (rowIndex === 1) return; // Skip the header row
+        const rowData = {};
+        row.values.slice(1).forEach((value, colIndex) => {
+            rowData[headers[colIndex]] = value;
+        });
         sheetData.push(rowData);
     });
 
