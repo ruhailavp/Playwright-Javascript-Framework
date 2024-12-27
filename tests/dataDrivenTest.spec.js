@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { readExcelFile } from "../utils/csvUtil";
+import { readExcelFile } from "../utils/excelUtil";
 import path from 'path';
 
 test.describe('Data driven testing', () => {
