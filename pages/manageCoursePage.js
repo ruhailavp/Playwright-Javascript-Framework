@@ -1,5 +1,4 @@
 import { BasePage } from "./basePage";
-
 import selector from '../locators/manageCoursePage.json';
 
 
@@ -148,6 +147,11 @@ export class ManageCoursePage extends BasePage {
         // })
         // await rowData.locator("//button[contains(text(), 'Delete')]").click();
         await this.wait();        
+    }
+
+
+    async deleteCourceByAi() {
+        await ai()
     }
 
 
