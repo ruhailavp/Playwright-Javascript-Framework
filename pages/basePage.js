@@ -25,7 +25,8 @@ export class BasePage {
 
     /* get all elements */
     async getAllElements(locator) {
-        const elements = await this.page.$$(locator);
+        const elements = await this.page.locator(locator).all();
+        // const elements = await this.page.$$(locator);
         return elements;
     }
 
