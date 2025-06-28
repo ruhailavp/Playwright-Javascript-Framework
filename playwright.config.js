@@ -113,11 +113,11 @@ export default defineConfig({
     },
 
 
-
-    /* Firefox browser */
+    /* 
+    /* Firefox browser * /
     {
       name: 'smoke-firefox',
-      testMatch: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
+      //testMatch: ['** /homePageTest.spec.js', '** /signupPageTest.spec.js'],
       use: {
         browserName: 'firefox',
       }
@@ -125,7 +125,7 @@ export default defineConfig({
 
     {
       name: 'setup-firefox',
-      testMatch: '**/*.setup.js', // Matches files ending with .setup.js for setup tasks     
+      testMatch: '** /*.setup.js', // Matches files ending with .setup.js for setup tasks     
       dependencies: ['smoke-firefox'],
       use: {
         browserName: 'firefox',
@@ -141,17 +141,17 @@ export default defineConfig({
         navigationTimeout: 30000,
         actionTimeout: 30000,
       },
-      testMatch: '**/*.spec.js',
-      testIgnore: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
+      testMatch: '** /*.spec.js',
+      testIgnore: ['** /homePageTest.spec.js', '** /signupPageTest.spec.js'],
       dependencies: ['smoke-firefox', 'setup-firefox'],
     },
 
 
 
-    /* Webkit browser */
+    /* Webkit browser * /
     {
       name: 'smoke-webkit',
-      testMatch: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js' ],
+      testMatch: ['** /homePageTest.spec.js', '** /signupPageTest.spec.js' ],
       use: {
         browserName: 'webkit',
       }
@@ -159,7 +159,7 @@ export default defineConfig({
 
     {
       name: 'setup-webkit',
-      testMatch: '**/*.setup.js', // Matches files ending with .setup.js for setup tasks     
+      testMatch: '** /*.setup.js', // Matches files ending with .setup.js for setup tasks     
       dependencies: ['smoke-webkit'],
       use: {
         browserName: 'webkit',
@@ -175,10 +175,10 @@ export default defineConfig({
         navigationTimeout: 30000,
         actionTimeout: 30000,
        },
-      testMatch: '**/*.spec.js',
-      testIgnore: ['**/homePageTest.spec.js', '**/signupPageTest.spec.js'],
+      testMatch: '** /*.spec.js',
+      testIgnore: ['** /homePageTest.spec.js', '** /signupPageTest.spec.js'],
       dependencies: ['smoke-webkit', 'setup-webkit'],
-    },
+    }, */
 
 
     ///////////////////////////////////////////////////////////////////////
