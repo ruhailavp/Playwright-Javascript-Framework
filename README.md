@@ -46,7 +46,7 @@ The following environment variables are used in the project, and their values ar
 
 | Secret Name       | Secret Value      | Description         |
 |-------------------|-------------------|---------------------|
-| `STAGE_URL`        | https://example.com | The URL of your testing application |
+| `BASE_URL`        | https://example.com | The URL of your testing application |
 | `LOGIN_EMAIL`           | your email        | A valid email for authentication |
 | `LOGIN_PASSWORD`        | your password     | A valid password for authentication |
 
@@ -63,7 +63,7 @@ export default defineConfig({
     {
       name: 'example-project',
       use: {
-        baseURL: process.env.STAGE_URL,  // Access the TEST_URL secret
+        baseURL: process.env.BASE_URL,  // Access the TEST_URL secret
       },
     },
   ],
