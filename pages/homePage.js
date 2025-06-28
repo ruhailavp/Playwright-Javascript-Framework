@@ -1,9 +1,14 @@
 import { BasePage } from './basePage';
 import { LoginPage } from './loginPage';
-
 import selector from "../locators/homePage.json";
-import 'dotenv/config';
 
+/**
+ * HomePage class represents the home page of the application.
+ * It extends the BasePage class to inherit common page functionalities.
+ * 
+ * @class HomePage
+ * @extends BasePage
+ */
 
 export class HomePage extends BasePage {
 
@@ -17,7 +22,7 @@ export class HomePage extends BasePage {
     }
 
     async openApplication() {
-        await this.page.goto('https://freelance-learn-automation.vercel.app/');
+        await this.page.goto(process.env.BASE_URL);
     }
 
 
