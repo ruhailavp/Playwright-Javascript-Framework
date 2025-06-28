@@ -9,7 +9,6 @@ export function getReportFolder(baseDir, maxReports = 10) {
   return folder;
 }
 
-
 // Function to clean up old reports
 function cleanupOldReports(baseDir, maxReports) {
   try {
