@@ -1,6 +1,6 @@
 on:
   repository_dispatch:
-    types: [run-playwright-tests]
+    types: [run-playwright-tests-original]
 
 jobs:
   run-tests:
