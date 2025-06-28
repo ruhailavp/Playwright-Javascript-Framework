@@ -1,6 +1,6 @@
 on:
   repository_dispatch:
-    types: [run-playwright-tests]
+    types: [run-playwright-tests-original]
 
 jobs:
   run-tests:
@@ -9,5 +9,7 @@ jobs:
       # Add your test steps here
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: echo
+        run: echo "Hello, this is a placeholder for Playwright tests!"
       - name: Run Playwright tests
-        run: npx playwright test
+        run: echo "Hello, this is a placeholder for Playwright tests!"
