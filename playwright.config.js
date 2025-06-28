@@ -1,7 +1,11 @@
 import { defineConfig, devices } from "@playwright/test";
 import path from "path";
-import 'dotenv/config';
 import { getReportFolder } from './utils/reportManager'
+//import 'dotenv/config';
+import dotenv from 'dotenv';
+
+const env = process.env.TEST_ENV || 'sit'; // default to SIT
+dotenv.config({ path: `.env.${env}` });
 
 // export const STORAGE_STATE = path.join(__dirname, 'storageState', 'storageState.json');
 // export const STORAGE_STATE_CHROMIUM = path.join(__dirname, 'storageState', 'storageState_chromium.json');

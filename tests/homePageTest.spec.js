@@ -1,4 +1,5 @@
 import { test, expect } from "../fixtures/pomFixture";
+import { HOME_PAGE_TITLE } from "../constants/homePageConstants";
 
 
 test.describe('@smoke Home page test', () => {
@@ -10,7 +11,7 @@ test.describe('@smoke Home page test', () => {
         await homePage.openApplication();
         const title = await homePage.getPageTitle();
         console.log("Home page title: ", title);
-        expect(title).toBe("Learn Automation Courses");
+        expect(title).toBe(HOME_PAGE_TITLE);
     })
 
 
