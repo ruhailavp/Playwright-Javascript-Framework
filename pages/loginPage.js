@@ -4,7 +4,18 @@ import { SignupPage } from './signupPage';
 import selector from '../locators/loginPage.json';
 
 
-
+/** * Represents the Login Page of the application.
+ * This class provides methods to interact with the login page
+ * such as entering email and password, clicking the sign-in button,
+ * and navigating to the signup page.
+ * * @extends BasePage
+ * * @example
+ * const loginPage = new LoginPage(page);
+ * loginPage.navigateToLoginPage();
+ * loginPage.enterEmail('standard_user');
+ * loginPage.enterPassword('secret_sauce');
+ * const welcomePage = await loginPage.clickOnSigninButton();
+ */
 export class LoginPage extends BasePage {
 
     /**

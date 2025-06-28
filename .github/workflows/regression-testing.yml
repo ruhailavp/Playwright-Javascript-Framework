@@ -28,18 +28,18 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Set environment variables for login and STAGE_URL
+    - name: Set environment variables for login and BASE_URL
       run: |
         echo "LOGIN_EMAIL=${{ secrets.LOGIN_EMAIL }}" >> $GITHUB_ENV
         echo "LOGIN_PASSWORD=${{ secrets.LOGIN_PASSWORD }}" >> $GITHUB_ENV
-        echo "STAGE_URL=${{ secrets.STAGE_URL }}" >> $GITHUB_ENV
+        echo "BASE_URL=${{ secrets.BASE_URL }}" >> $GITHUB_ENV
 
     - name: Run Playwright tests
       run: npx playwright test --project=chromium
       env:
         LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
         LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
-        STAGE_URL: ${{ secrets.STAGE_URL }}
+        BASE_URL: ${{ secrets.BASE_URL }}
     
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}

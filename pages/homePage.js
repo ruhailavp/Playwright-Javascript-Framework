@@ -22,7 +22,7 @@ export class HomePage extends BasePage {
     }
 
     async openApplication() {
-        await this.page.goto(process.env.BASE_URL);
+        await this.page.goto("/");
     }
 
 

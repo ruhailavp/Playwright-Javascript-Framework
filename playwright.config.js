@@ -2,10 +2,17 @@ import { defineConfig, devices } from "@playwright/test";
 import path from "path";
 import { getReportFolder } from './utils/reportManager'
 //import 'dotenv/config';
+const fs = require('fs');
 import dotenv from 'dotenv';
 
 const env = process.env.TEST_ENV || 'sit'; // default to SIT
-dotenv.config({ path: `.env.${env}` });
+const envFile = `.env.${env}`;
+
+if (fs.existsSync(envFile)) {
+  dotenv.config({ path: envFile });
+} else {
+  console.warn(`Warning: ${envFile} not found. Relying on existing environment variables.`);
+}
 
 // export const STORAGE_STATE = path.join(__dirname, 'storageState', 'storageState.json');
 // export const STORAGE_STATE_CHROMIUM = path.join(__dirname, 'storageState', 'storageState_chromium.json');
@@ -62,7 +69,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {       
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.STAGE_URL,
+    baseURL: process.env.BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
